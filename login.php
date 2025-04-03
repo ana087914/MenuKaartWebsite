@@ -40,6 +40,17 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   <link rel="stylesheet" href="main.css">
 </head>
 <body>
+<header>
+    <nav>
+        <ul>
+            <li><a href="index.php">HOME</a></li>
+            <li><a href="menu.php">MENU</a></li>
+            <li><a href="about.php">ABOUT US</a></li>
+            <li><a href="werkenbij.php">WORKING AT</a></li>
+            <li><a href="login.php">LOGIN</a></li>
+        </ul>
+    </nav>
+</header>
   <main class="login-page">
     <div class="login-box">
       <h2>Inloggen</h2>

@@ -1,5 +1,5 @@
 <?php
-$host = 'mysql_db'; // Dacă ești în Docker, așa rămâne
+$host = 'mysql_db';
 $db   = 'mydatabase';
 $user = 'root';
 $pass = 'rootpassword';
@@ -27,6 +27,7 @@ $items = $stmt->fetchAll();
     <meta charset="UTF-8">
     <title>Menu</title>
     <link rel="stylesheet" href="main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -45,14 +46,18 @@ $items = $stmt->fetchAll();
 <main class="menu-page">
     <h1 class="menu-title">Ons Menu</h1>
     <div class="menu-container">
-        <?php foreach ($items as $item): ?>
-            <div class="menu-item">
-                <img src="images/<?= htmlspecialchars($item['afbeelding']) ?>" alt="<?= htmlspecialchars($item['naam']) ?>">
-                <div class="menu-info">
-                    <h2><?= htmlspecialchars($item['naam']) ?></h2>
-                    <p><?= htmlspecialchars($item['beschrijving']) ?></p>
-                    <p class="prijs">€<?= number_format($item['prijs'], 2) ?></p>
-                </div>
+        <?php foreach (array_chunk($items, 3) as $row): ?>
+            <div class="menu-row">
+                <?php foreach ($row as $item): ?>
+                    <div class="menu-item">
+                        <img src="images/<?= htmlspecialchars($item['afbeelding']) ?>" alt="<?= htmlspecialchars($item['naam']) ?>">
+                        <div class="menu-info">
+                            <h2><?= htmlspecialchars($item['naam']) ?></h2>
+                            <p><?= htmlspecialchars($item['beschrijving']) ?></p>
+                            <p class="prijs">€<?= number_format($item['prijs'], 2) ?></p>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
             </div>
         <?php endforeach; ?>
     </div>
