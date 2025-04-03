@@ -18,7 +18,6 @@
       </ul>
     </nav>
   </header>
-
   <main class="homepage">
     <div class="home-content">
       <h1>Welcome to Aesthetic Slices</h1>
