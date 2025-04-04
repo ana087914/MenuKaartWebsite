@@ -15,6 +15,10 @@
         <li><a href="about.php">ABOUT US</a></li>
         <li><a href="werkenbij.php">WORKING AT</a></li>
         <li><a href="login.php">LOGIN</a></li>
+        <?php if (isset($_SESSION['user'])): ?>
+      <li><a href="admin.php">ADMIN</a></li>
+    <?php endif; ?>
+
       </ul>
     </nav>
   </header>
@@ -38,9 +42,7 @@
     </div>
   </main>
 
-  <footer>
-    <p>&copy; 2025 Aesthetic Slices. Alle rechten voorbehouden.</p>
-  </footer>
+  
 </body>
 
 </html>

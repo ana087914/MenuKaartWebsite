@@ -1,11 +1,9 @@
 <?php
 session_start();
 
-// Conectare cu PDO în loc de mysqli
+// Conectare la baza de date cu utilizatorul corect (același ca în celelalte fișiere)
 try {
-    $conn = new PDO("mysql:host=mysql_db;dbname=mydatabase", "user", "password");
-
-
+    $conn = new PDO("mysql:host=mysql_db;dbname=mydatabase", "root", "rootpassword");
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch(PDOException $e) {
     die("Verbinding mislukt: " . $e->getMessage());
@@ -16,6 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $username = $_POST["username"];
     $password = $_POST["password"];
 
+    // Căutăm userul cu parolă SHA1
     $stmt = $conn->prepare("SELECT * FROM users WHERE username = :username AND password = SHA1(:password)");
     $stmt->bindParam(":username", $username);
     $stmt->bindParam(":password", $password);
@@ -48,23 +47,27 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <li><a href="about.php">ABOUT US</a></li>
             <li><a href="werkenbij.php">WORKING AT</a></li>
             <li><a href="login.php">LOGIN</a></li>
+            <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true): ?>
+                <li><a href="admin.php">ADMIN</a></li>
+                <li><a href="logout.php">LOGOUT</a></li>
+            <?php endif; ?>
         </ul>
     </nav>
 </header>
-  <main class="login-page">
+<main class="login-page">
     <div class="login-box">
-      <h2>Inloggen</h2>
+        <h2>Inloggen</h2>
 
-      <?php if (isset($error)): ?>
-        <p class="error"><?= $error ?></p>
-      <?php endif; ?>
+        <?php if (isset($error)): ?>
+            <p class="error"><?= $error ?></p>
+        <?php endif; ?>
 
-      <form method="POST">
-        <input type="text" name="username" placeholder="Gebruikersnaam" required>
-        <input type="password" name="password" placeholder="Wachtwoord" required>
-        <button type="submit">Inloggen</button>
-      </form>
+        <form method="POST">
+            <input type="text" name="username" placeholder="Gebruikersnaam" required>
+            <input type="password" name="password" placeholder="Wachtwoord" required>
+            <button type="submit">Inloggen</button>
+        </form>
     </div>
-  </main>
+</main>
 </body>
 </html>
