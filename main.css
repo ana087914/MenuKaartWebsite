@@ -300,3 +300,108 @@ footer {
 .admin-page .top-bar a:hover {
   text-decoration: underline;
 }
+/* Over ons pagina */
+.about-page {
+  padding: 130px 20px 80px;
+  text-align: center;
+  color: white;
+}
+
+.about-title {
+  font-size: 3.5rem;
+  font-weight: bold;
+  margin-bottom: 30px;
+  font-family: "Georgia", serif;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+}
+
+.about-text {
+  font-size: 1.2rem;
+  max-width: 900px;
+  margin: 0 auto 20px;
+  line-height: 1.8;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+.features {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin-top: 50px;
+}
+
+.feature-box {
+  width: 200px;
+  text-align: center;
+}
+
+.feature-box img {
+  width: 80px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.feature-box h3 {
+  font-size: 1.2rem;
+  color: white;
+  text-shadow: 1px 1px 4px black;
+  font-family: "Georgia", serif;
+}
+.werkenbij-page {
+  padding: 140px 30px 60px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  font-family: "Segoe UI", sans-serif;
+}
+
+.werkenbij-title {
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 40px;
+  text-shadow: 2px 2px 8px black;
+  color: #fff;
+}
+
+.werkenbij-info {
+  max-width: 900px;
+  margin: 0 auto 60px;
+  text-align: center;
+  font-size: 1.2rem;
+  line-height: 1.7;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 15px;
+}
+
+.job-options {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.job-card {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 25px;
+  border-radius: 15px;
+  text-align: center;
+  width: 280px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.job-card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #ffc107;
+}
+
+.job-card img {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 15px;
+}
+
+.job-card p {
+  font-size: 1rem;
+}

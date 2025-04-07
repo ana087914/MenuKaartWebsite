@@ -41,19 +41,20 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <body>
 <header>
     <nav>
-        <ul>
-            <li><a href="index.php">HOME</a></li>
-            <li><a href="menu.php">MENU</a></li>
-            <li><a href="about.php">ABOUT US</a></li>
-            <li><a href="werkenbij.php">WORKING AT</a></li>
+      <ul>
+        <li><a href="index.php">HOME</a></li>
+        <li><a href="menu.php">MENU</a></li>
+        <li><a href="about.php">ABOUT US</a></li>
+        <li><a href="werkenbij.php">WORKING AT</a></li>
+        <?php if (isset($_SESSION["loggedin"])): ?>
+            <li><a href="admin.php">ADMIN</a></li>
+            <li><a href="logout.php">LOGOUT</a></li>
+        <?php else: ?>
             <li><a href="login.php">LOGIN</a></li>
-            <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true): ?>
-                <li><a href="admin.php">ADMIN</a></li>
-                <li><a href="logout.php">LOGOUT</a></li>
-            <?php endif; ?>
-        </ul>
+        <?php endif; ?>
+      </ul>
     </nav>
-</header>
+  </header>
 <main class="login-page">
     <div class="login-box">
         <h2>Inloggen</h2>

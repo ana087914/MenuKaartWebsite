@@ -36,15 +36,20 @@ $desserts = array_filter($items, fn($item) => stripos($item['naam'], 'cake') !==
 <body>
 <header>
     <nav>
-        <ul>
-            <li><a href="index.php">HOME</a></li>
-            <li><a href="menu.php">MENU</a></li>
-            <li><a href="about.php">ABOUT US</a></li>
-            <li><a href="werkenbij.php">WORKING AT</a></li>
+      <ul>
+        <li><a href="index.php">HOME</a></li>
+        <li><a href="menu.php">MENU</a></li>
+        <li><a href="about.php">ABOUT US</a></li>
+        <li><a href="werkenbij.php">WORKING AT</a></li>
+        <?php if (isset($_SESSION["loggedin"])): ?>
+            <li><a href="admin.php">ADMIN</a></li>
+            <li><a href="logout.php">LOGOUT</a></li>
+        <?php else: ?>
             <li><a href="login.php">LOGIN</a></li>
-        </ul>
+        <?php endif; ?>
+      </ul>
     </nav>
-</header>
+  </header>
 
 <main class="menu-page">
     <h1 class="menu-title" style="margin-top: 160px;">Ons Menu</h1>

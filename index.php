@@ -14,11 +14,12 @@
         <li><a href="menu.php">MENU</a></li>
         <li><a href="about.php">ABOUT US</a></li>
         <li><a href="werkenbij.php">WORKING AT</a></li>
-        <li><a href="login.php">LOGIN</a></li>
-        <?php if (isset($_SESSION['user'])): ?>
-      <li><a href="admin.php">ADMIN</a></li>
-    <?php endif; ?>
-
+        <?php if (isset($_SESSION["loggedin"])): ?>
+            <li><a href="admin.php">ADMIN</a></li>
+            <li><a href="logout.php">LOGOUT</a></li>
+        <?php else: ?>
+            <li><a href="login.php">LOGIN</a></li>
+        <?php endif; ?>
       </ul>
     </nav>
   </header>
