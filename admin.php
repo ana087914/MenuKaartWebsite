@@ -1,7 +1,5 @@
 <?php
 session_start();
-
-
 $host = 'mysql_db';
 $db   = 'mydatabase';
 $user = 'root';
@@ -10,7 +8,6 @@ $charset = 'utf8mb4';
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
 $options = [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION];
-
 try {
     $pdo = new PDO($dsn, $user, $pass, $options);
 } catch (PDOException $e) {
@@ -38,7 +35,7 @@ $items = $stmt->fetchAll();
     <body class="admin-page">
 
     <div class="top-bar">
-        <a href="add_item.php">➕ Nieuw gerecht toevoegen</a>
+        <a href="add.item.php">➕ Nieuw gerecht toevoegen</a>
         <a href="index.php">🏠 Terug naar Home</a>
     </div>
 
@@ -62,8 +59,8 @@ $items = $stmt->fetchAll();
                     <td><?= htmlspecialchars($item['categorie']) ?></td>
                     <td><?= htmlspecialchars($item['afbeelding']) ?></td>
                     <td>
-                        <a class="btn" href="edit_item.php?id=<?= $item['id'] ?>">✏️ Edit</a>
-                        <a class="btn" href="delete_item.php?id=<?= $item['id'] ?>" onclick="return confirm('Weet je zeker dat je dit item wilt verwijderen?');">🗑️ Verwijder</a>
+                        <a class="btn" href="edit.item.php?id=<?= $item['id'] ?>">✏️ Edit</a>
+                        <a class="btn" href="delete.item.php?id=<?= $item['id'] ?>" onclick="return confirm('Weet je zeker dat je dit item wilt verwijderen?');">🗑️ Verwijder</a>
                     </td>
                 </tr>
             <?php endforeach; ?>

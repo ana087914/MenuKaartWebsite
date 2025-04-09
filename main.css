@@ -101,18 +101,6 @@ main.homepage {
   cursor: pointer;
 }
 
-/* Footer altijd onderaan */
-footer {
-  background: rgba(0, 0, 0, 0.7);
-  color: white;
-  text-align: center;
-  padding: 15px;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-}
-
 /* Login pagina styling */
 .login-page {
   display: flex;
@@ -161,7 +149,7 @@ footer {
   color: red;
   margin-bottom: 15px;
 }
-/* Design pentru pagina de meniu */
+
 .menu-page {
   padding: 50px 20px;
   background-color: rgba(255, 255, 255, 0.05);
@@ -237,6 +225,29 @@ footer {
   font-size: 1.2rem;
   margin-top: 10px;
 }
+.search-form {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.search-form input[type="text"] {
+  padding: 10px;
+  width: 300px;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+}
+
+.search-form button {
+  padding: 10px 20px;
+  background-color: #ff8c00;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
 .admin-page {
   padding: 40px;
   background-color: #111;

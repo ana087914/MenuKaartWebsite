@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 $host = 'mysql_db';
 $db   = 'mydatabase';
 $user = 'root';
@@ -6,9 +8,7 @@ $pass = 'rootpassword';
 $charset = 'utf8mb4';
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
-$options = [
-    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-];
+$options = [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION];
 
 try {
     $pdo = new PDO($dsn, $user, $pass, $options);
@@ -17,9 +17,16 @@ try {
     exit;
 }
 
-$stmt = $pdo->query("SELECT * FROM menu_items");
-$items = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$zoek = $_GET['zoek'] ?? '';
 
+if (!empty($zoek)) {
+    $stmt = $pdo->prepare("SELECT * FROM menu_items WHERE naam LIKE :zoek OR beschrijving LIKE :zoek");
+    $stmt->execute(['zoek' => "%$zoek%"]);
+} else {
+    $stmt = $pdo->query("SELECT * FROM menu_items");
+}
+
+$items = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 $pizzas = array_filter($items, fn($item) => stripos($item['naam'], 'Pizza') !== false);
 $drinks = array_filter($items, fn($item) => stripos($item['naam'], 'Coca') !== false || stripos($item['naam'], 'Fanta') !== false || stripos($item['naam'], 'Bier') !== false);
@@ -49,10 +56,14 @@ $desserts = array_filter($items, fn($item) => stripos($item['naam'], 'cake') !==
         <?php endif; ?>
       </ul>
     </nav>
-  </header>
+</header>
 
 <main class="menu-page">
     <h1 class="menu-title" style="margin-top: 160px;">Ons Menu</h1>
+    <form method="GET" class="search-form">
+    <input type="text" name="zoek" placeholder="Zoek een gerecht..." value="<?= htmlspecialchars($zoek) ?>">
+    <button type="submit">Zoeken</button>
+</form>
 
     <h2 class="menu-section">Pizzas</h2>
     <div class="menu-container">
@@ -96,7 +107,6 @@ $desserts = array_filter($items, fn($item) => stripos($item['naam'], 'cake') !==
         <?php endforeach; ?>
     </div>
 </main>
-
 
 </body>
 </html>

@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-// Conectare la baza de date cu utilizatorul corect (același ca în celelalte fișiere)
+
 try {
     $conn = new PDO("mysql:host=mysql_db;dbname=mydatabase", "root", "rootpassword");
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -9,12 +9,12 @@ try {
     die("Verbinding mislukt: " . $e->getMessage());
 }
 
-// Când se trimite formularul
+
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $username = $_POST["username"];
     $password = $_POST["password"];
 
-    // Căutăm userul cu parolă SHA1
+    
     $stmt = $conn->prepare("SELECT * FROM users WHERE username = :username AND password = SHA1(:password)");
     $stmt->bindParam(":username", $username);
     $stmt->bindParam(":password", $password);
