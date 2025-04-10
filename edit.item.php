@@ -1,7 +1,7 @@
 <?php
 $pdo = new PDO("mysql:host=mysql_db;dbname=mydatabase", "root", "rootpassword");
 
-// Verifică dacă avem ID
+
 if (!isset($_GET['id'])) {
     header("Location: admin.php");
     exit;
@@ -9,7 +9,7 @@ if (!isset($_GET['id'])) {
 
 $id = $_GET['id'];
 
-// Ia item-ul din DB
+
 $stmt = $pdo->prepare("SELECT * FROM menu_items WHERE id = ?");
 $stmt->execute([$id]);
 $item = $stmt->fetch();
@@ -19,7 +19,7 @@ if (!$item) {
     exit;
 }
 
-// UPDATE după submit
+// UPDATE na submit
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $naam = $_POST["naam"];
     $beschrijving = $_POST["beschrijving"];

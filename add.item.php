@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $beschrijving = $_POST['beschrijving'];
     $prijs = $_POST['prijs'];
     $categorie = $_POST['categorie'];
-    $afbeelding = $_POST['afbeelding']; // numele fișierului ex: margherita.jpg
+    $afbeelding = $_POST['afbeelding']; 
 
     $stmt = $pdo->prepare("INSERT INTO menu_items (naam, beschrijving, prijs, afbeelding, categorie) VALUES (?, ?, ?, ?, ?)");
     $stmt->execute([$naam, $beschrijving, $prijs, $afbeelding, $categorie]);

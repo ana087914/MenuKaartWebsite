@@ -1,7 +1,7 @@
 <?php
 session_start();
-session_unset(); // Șterge variabilele din sesiune
-session_destroy(); // Distruge sesiunea
+session_unset(); 
+session_destroy(); 
 
 header("Location: login.php");
 exit;
