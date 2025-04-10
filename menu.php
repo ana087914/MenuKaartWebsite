@@ -38,7 +38,7 @@ $desserts = array_filter($items, fn($item) => stripos($item['naam'], 'cake') !==
 <head>
     <meta charset="UTF-8">
     <title>Menu</title>
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
 <header>

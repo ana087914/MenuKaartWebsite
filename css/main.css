@@ -1,6 +1,6 @@
 /* Achtergrondafbeelding hele pagina */
 body {
-  background: url("images/back19.jpg") no-repeat center center fixed;
+  background: url("../images/back19.jpg") no-repeat center center fixed;
   background-size: cover;
   margin: 0;
   padding: 0;
@@ -9,7 +9,7 @@ body {
 
 /* Header styling */
 header {
-  background: url("images/back12.jpg") no-repeat center center;
+  background: url("../images/back12.jpg") no-repeat center center;
   background-size: 100% 100%;
   width: 100%;
   height: 100px;

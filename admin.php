@@ -25,7 +25,7 @@ $items = $stmt->fetchAll();
 
     <meta charset="UTF-8">
     <title>Admin Panel</title>
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="css/main.css">
 
 
 </head>
